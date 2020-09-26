@@ -29,10 +29,8 @@ class CoachesController < ApplicationController
     respond_to do |format|
       if @coach.save
         format.html { redirect_to @coach, notice: 'Coach was successfully created.' }
-        format.json { render :show, status: :created, location: @coach }
       else
         format.html { render :new }
-        format.json { render json: @coach.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,21 +41,17 @@ class CoachesController < ApplicationController
     respond_to do |format|
       if @coach.update(coach_params)
         format.html { redirect_to @coach, notice: 'Coach was successfully updated.' }
-        format.json { render :show, status: :ok, location: @coach }
       else
         format.html { render :edit }
-        format.json { render json: @coach.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /coaches/1
-  # DELETE /coaches/1.json
   def destroy
     @coach.destroy
     respond_to do |format|
       format.html { redirect_to coaches_url, notice: 'Coach was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

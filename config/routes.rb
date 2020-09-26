@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :teams
   resources :coaches
   get 'welcome/index'
   get 'inicio', to: 'welcome#index'
