@@ -11,22 +11,108 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 ">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2> Dados do perfil</h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <br>
 
-  <div class="field">
-    <%= form.label :bithdate %>
-    <%= form.date_select :bithdate %>
-  </div>
+          <div id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-  </div>
+            <div class="profile clearfix">
+              <%= link_to image_tag(avatar_url(coach), alt:"...", class:"displayed img-circle profile_img", id:"imgAvatarMd"), '#', "data-toggle":"modal", "data-target":"#avatarModal" %>
+            </div>
 
-  <div class="actions">
-    <%= form.submit %>
+            <!-- Modal -->
+            <div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class = "form-horizontal form-label-left">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Avatar</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <%= image_tag(avatar_url(coach), alt:"...", class:"img-circle profile_img") %>
+                        <%= form.file_field :avatar, class: "form-control"%>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <%= form.submit "Salvar", class: "btn btn-primary" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Modal -->
+
+
+
+            <div class="item form-group">
+              <%= form.label :name, class:"col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <%= form.text_field :name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="item form-group">
+              <%= form.label :gender, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <div id="gender" class="btn-group" data-toggle="buttons">
+                  <label class="btn <%= gender_select(@coach, 'male') %>" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <%= form.radio_button :gender, 'male', "data-parsley-multiple":"gender", class: "join-btn"%> &nbsp;  Masculino &nbsp; </label>
+                  <label class="btn <%= gender_select(@coach, 'female') %>" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <%= form.radio_button :gender, 'female', "data-parsley-multiple":"gender", class: "join-btn"%> &nbsp;  Feminino &nbsp; </label>
+                </div>
+              </div>
+            </div>
+
+            <%= javascript_tag do %>
+              var labels = document.querySelectorAll('div#gender label');
+              labels.forEach((label) => {
+                label .addEventListener('click', () => {
+                  label.classList.remove('btn-secondary');
+                  label.classList.add('btn-primary');
+
+                  labels.forEach((lbl) => {
+                    if(lbl!==label){
+                      lbl.classList.remove('btn-primary');
+                      lbl.classList.add('btn-secondary');
+                    };
+                  });
+                });
+              }); 
+            <% end %>
+
+            <div class="item form-group">
+              <%= form.label :bithdate, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <%= form.date_field :bithdate, 
+                    value: (l(@coach.bithdate) unless @coach.bithdate.blank?),
+                    class: "date-picker form-control datepicker"%>
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <div class="col-md-6 col-sm-6 offset-md-3">
+                <%= link_to 'Voltar', coaches_path, class: "btn btn-danger"%>
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
+

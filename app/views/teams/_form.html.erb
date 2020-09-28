@@ -21,6 +21,18 @@
     <%= form.text_field :coach_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :pokemon %>
+    <%= form.collection_select(:subjct_id) %>
+  </div>
+
+  <div id='pokemons'>
+    <%= form.fields_for :pokemons do |pokemon| %>
+      <%= render partial: "pokemon_fields", locals: {f: pokemon} %>
+    <% end %>
+    <%= link_to_add_association "Adicionar pokemons", form, :pokemons %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

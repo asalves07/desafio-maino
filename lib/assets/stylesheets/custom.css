@@ -14,6 +14,11 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased; }
 
+  .displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
 .glyphicon-asterisk:before {
   content: "\002a"; }
 
@@ -921,12 +926,12 @@
   float: left; }
 
 .img-circle.profile_img {
-  width: 70%;
+  width: 15%;
   background: #fff;
-  margin-left: 15%;
   z-index: 1000;
   position: inherit;
   margin-top: 20px;
+  margin-bottom: 9px;
   border: 1px solid rgba(52, 73, 94, 0.44);
   padding: 4px; }
 

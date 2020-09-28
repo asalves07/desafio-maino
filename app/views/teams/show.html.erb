@@ -10,5 +10,28 @@
   <%= @team.coach_id %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>IMG</th>
+      <th>Name</th>
+      <th>Tipo</th>
+      <th>Tipo 2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team.pokemons.each do |pokemon| %>
+      <tr>
+        <td><%= pokemon.sprite %></td>
+        <td><%= pokemon.name %></td>
+        <td><%= pokemon.kind %></td>
+        <td><%= pokemon.kind_2 %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
