@@ -42,6 +42,7 @@ gem 'poke-api-v2'
 gem 'i18n'
 gem 'kaminari'
 gem 'kaminari-i18n'
+gem 'webpacker'
 
 
 group :development, :test do
