@@ -1,26 +1,26 @@
-<h1>Seja Bem Vindo</h1>
+<h1>Seja Bem Vindo ao Mundo Pokemon</h1>
 
 
 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
   <div class="tile-stats">
-    <div class="icon"><i class="fa fa-check-circle" style = "color:#ee8523"></i></div>
-    <div class="count"  style = "color:#ee8523"><%= @total_coaches %></div>
-    <h3 style = "color:#ee8523">Treinadores Pokemons</h3>
+    <div class="icon"><i class="fa fa-users" style = "color:#ee8523"></i></div>
+    <div class="count"  style = "color:#ee8523"><%= @coaches.count %></div>
+    <h3 style = "color:#ee8523">Treinadores</h3>
     <p>Total de Treinadores Pokemons.</p>
   </div>
 </div>
 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6" >
   <div class="tile-stats">
-    <div class="icon"><i class="fa fa-check-circle" style = "color:#23be87"></i></div>
-    <div class="count" style = "color:#23be87"><%= @total_teams %></div>
+    <div class="icon"><i class="fa fa-flag-checkered" style = "color:#23be87"></i></div>
+    <div class="count" style = "color:#23be87"><%= @teams.count %></div>
     <h3 style = "color:#23be87">Times</h3>
     <p>Total de Times criados</p>
   </div>
 </div>
 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
   <div class="tile-stats">
-    <div class="icon"><i class="fa fa-times-circle" style = "color:#f1173a"></i></div>
-    <div class="count" style = "color:#f1173a" ><%= @total_pokemons %></div>
+    <div class="icon"><i class="fa fa-paw" style = "color:#f1173a"></i></div>
+    <div class="count" style = "color:#f1173a" ><%= @pokemons.count %></div>
     <h3 style = "color:#f1173a">Pokemons</h3>
     <p>Total de Pokemons registrados.</p>
   </div>

@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    @total_coaches = AdminStatistic.total_coaches
-    @total_teams = AdminStatistic.total_teams
-    @total_pokemons = AdminStatistic.total_pokemons
+    @coaches = Coach.all
+    @teams = Team.all
+    @pokemons = Pokemon.all
   end
 end

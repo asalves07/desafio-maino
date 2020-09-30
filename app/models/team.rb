@@ -1,12 +1,8 @@
 class Team < ApplicationRecord
   belongs_to :coach
+
   has_and_belongs_to_many :pokemons
+  validates :pokemons, length: {minimum: 1, maximum: 6}
+  validates :name, presence: true
 
-  # Callback
-  after_create :set_statistic
-
-  private
-  def set_statistic
-    AdminStatistic.set_event(AdminStatistic::EVENTS[:total_teams])
-  end
 end

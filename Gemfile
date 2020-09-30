@@ -41,6 +41,8 @@ gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'poke-api-v2'
 #gem "seedbank"
 gem 'i18n'
+gem 'kaminari'
+gem 'kaminari-i18n'
 
 
 group :development, :test do

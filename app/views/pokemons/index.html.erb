@@ -1,2 +1,24 @@
-<h1>Pokemons#index</h1>
-<p>Find me in app/views/pokemons/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <% @pokemons.each do |pokemon| %>
+    <div class="col-md-4 col-sm-6  profile_details">
+      <div class="well profile_view">
+        <div class="col-sm-12">
+          <h4 class="brief"><i>Pokemon</i></h4>
+          <div class="left col-md-6 col-sm-4">
+            <h2><%= pokemon.name %></h2>
+            <p><strong>Tipo: </strong> <%= pokemon.kind %> </p>
+            <p><strong>Tipo: </strong> <%= pokemon.kind_2 %> </p>
+          </div>
+          <div class="right col-md-6 col-sm-6 text-center">
+            <%= image_tag(pokemon.sprite, alt:"", class:"img-circle img-fluid")  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class= "text-center pagination">
+  <%= paginate @pokemons %>
+</div>
