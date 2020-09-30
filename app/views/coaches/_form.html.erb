@@ -95,10 +95,10 @@
             <% end %>
 
             <div class="item form-group">
-              <%= form.label :bithdate, class: "col-form-label col-md-3 col-sm-3 label-align" %>
+              <%= form.label :birthdate, class: "col-form-label col-md-3 col-sm-3 label-align" %>
               <div class="col-md-6 col-sm-6 ">
-                <%= form.date_field :bithdate, 
-                    value: (l(@coach.bithdate) unless @coach.bithdate.blank?),
+                <%= form.date_field :birthdate, 
+                    value: (l(@coach.birthdate) unless @coach.birthdate.blank?),
                     class: "date-picker form-control datepicker"%>
               </div>
             </div>

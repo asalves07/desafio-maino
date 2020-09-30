@@ -11,29 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 ">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2> Dados do Time</h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <br>
 
-  <div class="field">
-    <%= form.label :coach_id %>
-    <%= form.text_field :coach_id %>
-  </div>
+          <div id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
-  <div class="field">
-    <%= form.label :pokemon %>
-    <%= form.collection_select(:subjct_id) %>
-  </div>
+            <div class="item form-group">
+              <%= form.label :name, class:"col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <%= form.text_field :name, class: "form-control" %>
+              </div>
+            </div>
 
-  <div id='pokemons'>
-    <%= form.fields_for :pokemons do |pokemon| %>
-      <%= render partial: "pokemon_fields", locals: {f: pokemon} %>
-    <% end %>
-    <%= link_to_add_association "Adicionar pokemons", form, :pokemons %>
-  </div>
+            <div class="item form-group">
+              <%= form.label :coach_id, class:"col-form-label col-md-3 col-sm-3 label-align" %>
+              <div class="col-md-6 col-sm-6 ">
+                <%= form.collection_select(:coach_id, @coaches, :id, :name, {}, {class: "form-control"}) %>
+              </div>
+            </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+            <div class="item form-group">
+              <div class="col-md-6 col-sm-6 offset-md-3">
+                <%= link_to 'Voltar', teams_path, class: "btn btn-danger"%>
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
+

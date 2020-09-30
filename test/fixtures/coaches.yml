@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  bithdate: 2020-09-27
+  birthdate: 2020-09-27
   gender: 1
 
 two:
   name: MyString
-  bithdate: 2020-09-27
+  birthdate: 2020-09-27
   gender: 1

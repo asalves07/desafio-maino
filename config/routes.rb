@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pokemons/index'
   resources :teams
   resources :coaches
   get 'welcome/index'

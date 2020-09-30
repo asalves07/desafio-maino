@@ -14,7 +14,7 @@ class CoachesTest < ApplicationSystemTestCase
     visit coaches_url
     click_on "New Coach"
 
-    fill_in "Bithdate", with: @coach.bithdate
+    fill_in "Birthdate", with: @coach.birthdate
     fill_in "Gender", with: @coach.gender
     fill_in "Name", with: @coach.name
     click_on "Create Coach"
@@ -27,7 +27,7 @@ class CoachesTest < ApplicationSystemTestCase
     visit coaches_url
     click_on "Edit", match: :first
 
-    fill_in "Bithdate", with: @coach.bithdate
+    fill_in "Birthdate", with: @coach.birthdate
     fill_in "Gender", with: @coach.gender
     fill_in "Name", with: @coach.name
     click_on "Update Coach"

@@ -1,37 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h4>
+  <strong>Time:</strong>
   <%= @team.name %>
-</p>
+</h4>
 
-<p>
-  <strong>Coach:</strong>
-  <%= @team.coach_id %>
-</p>
+<h5>
+  <strong>Treinador:</strong>
+  <%= @team.coach.name %>
+</h5>
 
-<table>
-  <thead>
-    <tr>
-      <th>IMG</th>
-      <th>Name</th>
-      <th>Tipo</th>
-      <th>Tipo 2</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @team.pokemons.each do |pokemon| %>
-      <tr>
-        <td><%= pokemon.sprite %></td>
-        <td><%= pokemon.name %></td>
-        <td><%= pokemon.kind %></td>
-        <td><%= pokemon.kind_2 %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<div class="row">
+  <div class="x_panel">
+    <div class="x_content">
+      <% @team.pokemons.each do |pokemon| %>
+        <div class="col-md-6 col-sm-6  profile_details">
+          <div class="well profile_view">
+            <div class="col-sm-12">
+              <h4 class="brief"><i>Pokemon</i></h4>
+              <div class="left col-md-7 col-sm-7">
+                <h2><%= pokemon.name %></h2>
+                <p><strong>Tipo: </strong> <%= pokemon.kind %> </p>
+                <p><strong>Tipo: </strong> <%= pokemon.kind_2 %> </p>
+              </div>
+              <div class="right col-md-5 col-sm-5 text-center">
+                <%= image_tag(pokemon.sprite, alt:"", class:"img-circle img-fluid")  %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

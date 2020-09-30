@@ -1,31 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Coaches</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Bithdate</th>
-      <th>Gender</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @coaches.each do |coach| %>
-      <tr>
-        <td><%= coach.name %></td>
-        <td><%= coach.bithdate %></td>
-        <td><%= coach.gender %></td>
-        <td><%= link_to 'Show', coach %></td>
-        <td><%= link_to 'Edit', edit_coach_path(coach) %></td>
-        <td><%= link_to 'Destroy', coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1>Treinadores</h1>
 
 <br>
 
 <%= link_to 'New Coach', new_coach_path %>
+
+<div class="row">
+  <div class="x_panel">
+    <div class="x_content">
+      <% @coaches.each do |coach| %>
+        <div class="col-md-4 col-sm-4  profile_details">
+          <div class="well profile_view">
+            <div class="col-sm-12">
+              <h4 class="brief"><i>Treinador Pokemon</i></h4>
+              <div class="left col-md-7 col-sm-7">
+                <h2><%= coach.name %></h2>
+                <p><strong>Idade: </strong> <%= age(coach.birthdate) %> </p>
+                <p><strong>Sexo: </strong> <%= coach.gender%> </p>
+              </div>
+              <div class="right col-md-5 col-sm-5 text-center">
+                <%= image_tag(avatar_url(coach), alt:"", class:"img-circle img-fluid") %>
+              </div>
+            </div>
+            <div class=" profile-bottom text-left">
+              <div class=" col-sm-10 emphasis">
+                <%= link_to edit_coach_path(coach), class: "btn btn-success btn-sm" do %>
+                  <i class="fa fa-user"> </i> Editar
+                <% end %>
+                <%= link_to  coach, class: "btn btn-primary btn-sm" do %>
+                  <i class="fa fa-users"> </i> Ver Times
+                <% end %>
+                <%= link_to 'Apagar', coach, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -17,7 +17,7 @@ class CoachesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create coach" do
     assert_difference('Coach.count') do
-      post coaches_url, params: { coach: { bithdate: @coach.bithdate, gender: @coach.gender, name: @coach.name } }
+      post coaches_url, params: { coach: { birthdate: @coach.birthdate, gender: @coach.gender, name: @coach.name } }
     end
 
     assert_redirected_to coach_url(Coach.last)
@@ -34,7 +34,7 @@ class CoachesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update coach" do
-    patch coach_url(@coach), params: { coach: { bithdate: @coach.bithdate, gender: @coach.gender, name: @coach.name } }
+    patch coach_url(@coach), params: { coach: { birthdate: @coach.birthdate, gender: @coach.gender, name: @coach.name } }
     assert_redirected_to coach_url(@coach)
   end
 

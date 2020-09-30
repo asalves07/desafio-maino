@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :get_coaches, only: [:new, :edit]
+  after_action :add_pokomons, only: [:create]
 
   # GET /teams
   def index
@@ -62,4 +64,16 @@ class TeamsController < ApplicationController
       params.require(:team).permit(:name, :coach_id, 
         pokemons_attributes: [:id, :name, :kind, :kind_2, :sprite, :_destroy])
     end
+
+    def add_pokomons
+      rand(1..6).times do |j|
+        index = rand(1..721) 
+        @team.pokemons << Pokemon.find(index)
+      end
+    end
+
+    def get_coaches
+      @coaches = Coach.all
+    end
+
 end
