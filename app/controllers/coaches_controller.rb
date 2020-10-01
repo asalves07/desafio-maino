@@ -4,7 +4,7 @@ class CoachesController < ApplicationController
   # GET /coaches
   # GET /coaches.json
   def index
-    @coaches = Coach.includes(:teams)
+    @coaches = Coach.includes(:teams).page(params[:page])
   end
 
   # GET /coaches/1
