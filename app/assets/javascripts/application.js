@@ -18,5 +18,4 @@
 //= jquery-ui/ui/widgets/datepicker
 //= jquery-ui/ui/i18n/datepicker-pt-BR
 //= require custom
-//= require cocoon
 
