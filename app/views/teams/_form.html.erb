@@ -37,7 +37,7 @@
             <div class="item form-group">
               <%= form.label :coach_id, class:"col-form-label col-md-3 col-sm-3 label-align" %>
               <div class="col-md-6 col-sm-6 ">
-                <%= form.collection_select(:coach_id, @coaches, :id, :name, {}, {class: "form-control"}) %>
+                <%= form.select("coach_id", @coaches_options, {}, class: "form-control")%>
               </div>
             </div>
 

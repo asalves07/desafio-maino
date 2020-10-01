@@ -1,11 +1,10 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-  before_action :get_coaches, only: [:new, :edit]
-  after_action :add_pokomons, only: [:create]
+  before_action :get_coaches, only: [:new, :create, :edit, :update]
 
   # GET /teams
   def index
-    @teams = Team.includes(:pokemons)
+    @teams = Team.includes(:pokemons).page(params[:page])
   end
 
   # GET /teams/1
@@ -26,6 +25,9 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     respond_to do |format|
+      rand(1..6).times do |j|
+        @team.pokemons << Pokemon.find(rand(1..721))
+      end
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
       else
@@ -65,15 +67,8 @@ class TeamsController < ApplicationController
         pokemons_attributes: [:id, :name, :kind, :kind_2, :sprite, :_destroy])
     end
 
-    def add_pokomons
-      rand(1..6).times do |j|
-        index = rand(1..721) 
-        @team.pokemons << Pokemon.find(index)
-      end
-    end
-
     def get_coaches
-      @coaches = Coach.all
+      @coaches_options = Coach.all.pluck(:name, :id)
     end
 
 end

@@ -2,51 +2,52 @@
 
 
 <div class="x_content">
-<%= link_to 'New Team', new_team_path, class: "btn btn-info btn-sm" %>
-<!-- start team list -->
-<table class="table table-striped projects">
-  <thead>
-    <tr>
-      <th style="width: 1%">#</th>
-      <th style="width: 20%">Time</th>
-      <th style="width: 20%">Treinador</th>
-      <th>Pokemons</th>
-      <th style="width: 20%">#Edit</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @teams.each do |team| %>
+  <%= link_to 'New Team', new_team_path, class: "btn btn-info btn-sm" %>
+  <!-- start team list -->
+  <table class="table table-striped projects">
+    <thead>
       <tr>
-        <td>#</td>
-        <td>
-          <%= team.name %>
-        </td>
-        <td><%= team.coach.name %></td>
-        <td>
-          <ul class="list-inline">
-            <li>
-              <% team.pokemons.each do |pokemon| %>
-                <%= image_tag(pokemon.sprite, alt:"Avatar", class: "avatar" )  %>
-              <% end %>
-            </li>
-          </ul>
-        </td>
-        <td>
-          <%= link_to  team, class: "btn btn-primary btn-sm" do %>
-            <i class="fa fa-folder"> </i> Ver
-          <% end %>
-          <%= link_to edit_team_path(team), class: "btn btn-info btn-sm" do %>
-            <i class="fa fa-pencil"></i> Editar
-          <% end %>
-          <%= link_to team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" do %>
-            <i class="fa fa-trash-o"></i> Deletar
-          <% end %>
-        </td>
+        <th style="width: 1%">#</th>
+        <th style="width: 20%">Time</th>
+        <th style="width: 20%">Treinador</th>
+        <th>Pokemons</th>
+        <th style="width: 20%">#Edit</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<!-- end team list -->
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          <td>#</td>
+          <td>
+            <%= team.name %>
+          </td>
+          <td><%= team.coach.name %></td>
+          <td>
+            <ul class="list-inline">
+              <li>
+                <% team.pokemons.each do |pokemon| %>
+                  <%= image_tag(pokemon.sprite, alt:"Avatar", class: "avatar" )  %>
+                <% end %>
+              </li>
+            </ul>
+          </td>
+          <td>
+            <%= link_to  team, class: "btn btn-primary btn-sm" do %>
+              <i class="fa fa-folder"> </i> Ver
+            <% end %>
+            <%= link_to edit_team_path(team), class: "btn btn-info btn-sm" do %>
+              <i class="fa fa-pencil"></i> Editar
+            <% end %>
+            <%= link_to team_path(team), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" do %>
+              <i class="fa fa-trash-o"></i> Deletar
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <!-- end team list -->
+  <%= paginate @teams %>
 
 </div>
 

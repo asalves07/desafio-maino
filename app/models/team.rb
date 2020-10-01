@@ -5,4 +5,6 @@ class Team < ApplicationRecord
   validates :pokemons, length: {minimum: 1, maximum: 6}
   validates :name, presence: true
 
+  paginates_per 6
+
 end
