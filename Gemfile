@@ -35,8 +35,8 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'cocoon'
-# gem 'rest-client', '~> 1.8'
-# gem 'json', '~> 1.8', '>= 1.8.3'
+#gem 'rest-client', '~> 1.8'
+#gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'poke-api-v2'
 #gem "seedbank"
 gem 'i18n'
